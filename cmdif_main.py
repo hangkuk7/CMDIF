@@ -63,7 +63,9 @@ if __name__ == '__main__':
     # request_getBtsInformation(url, headers, json_params)
     cmd_mgr = CommandManager()
 
-    # Set Url
+    # Set Request Url
     api_url = "http://10.6.176.179:10000/tspi/execute"
     cmd_mgr.set_cmd_url(api_url)
     cmd_mgr.print_cmd_url()
+
+    # Set Request Headers
