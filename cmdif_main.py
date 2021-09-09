@@ -79,15 +79,17 @@ if __name__ == '__main__':
                  'parameters': {'name': 'getBtsInformation'}
                  }
 
-    rcmd_commnd = cmd_mgr.set_rcmd_message(rcmd_prefix, rcmd_body)
-    print(f'rcmd_commnd=[{rcmd_commnd}]')
+    rcmd_command = cmd_mgr.set_rcmd_message(rcmd_prefix, rcmd_body)
+    print(f'rcmd_commnd=[{rcmd_command}]')
 
-    # Make Command
-    # params = {'async': 0, \
-    #           'requestId': '121212asdfasdf', \
-    #           'callback': None, \
-    #           'timeout': 60, \
-    #           'username': 'nokia', \
-    #           'password': '0743de26db4b619c60dafbf40ff17572', \
-    #           'commond': rcmd_cmd
-    #           }
+    # Make Request Command
+    params = {'async': 0, \
+              'requestId': '121212asdfasdf', \
+              'callback': None, \
+              'timeout': 60, \
+              'username': 'nokia', \
+              'password': '0743de26db4b619c60dafbf40ff17572', \
+              'commond': rcmd_command
+              }
+
+    cmd_mgr.

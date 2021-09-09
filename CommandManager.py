@@ -9,7 +9,6 @@ class CommandManager:
         self._req_header = {'Accept': 'application/json', 'Content-Type': 'application/json'}
         self._rcmd_req_body = None
         self._rcmd_cmd = None
-        self._rcmd_param = None
         self._request_body = None
         self._http_res_code = None
         self._res_header = None
@@ -33,9 +32,9 @@ class CommandManager:
 
     def make_command(self, req_params):
 
-        json_req_params = json.dumps(req_params)
+        self._request_body = json.dumps(req_params)
 
-        return json_req_params
+        return self._request_body
 
     def send_command(self):
         print(f'[CommandManager] send_command() start')
