@@ -1,5 +1,5 @@
 import json
-import requests
+from CommandManager import CommandManager
 
 def request_getBtsInformation(api_url, api_headers, api_data):
     print(f'request_getBtsInformation() start')
@@ -60,4 +60,5 @@ if __name__ == '__main__':
     json_params = json.dumps(params)
     print(f'json_params=[\n{json_params}\n]')
 
-    request_getBtsInformation(url, headers, json_params)
+    # request_getBtsInformation(url, headers, json_params)
+    cmd_mgr = CommandManager()
