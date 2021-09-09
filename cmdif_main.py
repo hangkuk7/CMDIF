@@ -1,35 +1,35 @@
 import json
-#import requests
+import requests
 
-# def request_getBtsInformation(api_url, api_headers, api_data):
-#     print(f'request_getBtsInformation() start')
-#     print(f'=========================== REQUEST ================================')
-#     print(f'api_url=[{api_url}]')
-#     print(f'api_headers=[\n{api_headers}\n]')
-#     print(f'api_data=[\n{api_data}\n]')
-#     print(f'====================================================================')
-#
-#     try:
-#         res = requests.post(api_url, data=api_data, headers=api_headers)
-#         res.raise_for_status()
-#     except requests.exceptions.HTTPError as errh:
-#         print(f'HTTP Error: {errh}')
-#     except requests.exceptions.ConnectionError as errc:
-#         print(f'Error Connecting: {errc}')
-#     except requests.exceptions.Timeout as errt:
-#         print(f'Timeout Error: {errt}')
-#     except requests.exceptions.RequestException as err:
-#         print(f'Something Else: {err}')
-#
-#     json_response = res.json()
-#     print(f'=========================== RESPONSE================================')
-#     print(f'status code = [{res.status_code}]')
-#     print(f'header = [{res.headers}]')
-#     print(f'text=[\n{res.text}\n]')
-#     print(f'json=[\n{json_response}\n]')
-#     print(f'--------------------------------------------------------------------')
-#     print(f'elapsed=[{res.elapsed}]')
-#     print(f'====================================================================')
+def request_getBtsInformation(api_url, api_headers, api_data):
+    print(f'request_getBtsInformation() start')
+    print(f'=========================== REQUEST ================================')
+    print(f'api_url=[{api_url}]')
+    print(f'api_headers=[\n{api_headers}\n]')
+    print(f'api_data=[\n{api_data}\n]')
+    print(f'====================================================================')
+
+    try:
+        res = requests.post(api_url, data=api_data, headers=api_headers)
+        res.raise_for_status()
+    except requests.exceptions.HTTPError as errh:
+        print(f'HTTP Error: {errh}')
+    except requests.exceptions.ConnectionError as errc:
+        print(f'Error Connecting: {errc}')
+    except requests.exceptions.Timeout as errt:
+        print(f'Timeout Error: {errt}')
+    except requests.exceptions.RequestException as err:
+        print(f'Something Else: {err}')
+
+    json_response = res.json()
+    print(f'=========================== RESPONSE================================')
+    print(f'status code = [{res.status_code}]')
+    print(f'header = [{res.headers}]')
+    print(f'text=[\n{res.text}\n]')
+    print(f'json=[\n{json_response}\n]')
+    print(f'--------------------------------------------------------------------')
+    print(f'elapsed=[{res.elapsed}]')
+    print(f'====================================================================')
 
 if __name__ == '__main__':
     print(f'main() start')
@@ -60,4 +60,4 @@ if __name__ == '__main__':
     json_params = json.dumps(params)
     print(f'json_params=[\n{json_params}\n]')
 
-    # request_getBtsInformation(url, headers, json_params)
+    request_getBtsInformation(url, headers, json_params)
