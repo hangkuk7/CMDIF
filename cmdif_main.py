@@ -34,31 +34,36 @@ def request_getBtsInformation(api_url, api_headers, api_data):
 if __name__ == '__main__':
     print(f'main() start')
 
-    url = "http://10.6.176.179:10000/tspi/execute"
-
-    headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
-
-    rcmd_body = {'requestId': 1, \
-                 'parameters': {'name': 'getBtsInformation'}
-                 }
-    json_string = json.dumps(rcmd_body)
-    json_string = json.dumps(json_string)
-
-    rcmd_cmd = 'SEND-RCMD:246203, ' + json_string + ';'
-
-    print(f'rcmd_cmd=[{rcmd_cmd}]')
-
-    params = {'async': 0, \
-              'requestId': '121212asdfasdf', \
-              'callback': None, \
-              'timeout': 60, \
-              'username': 'nokia', \
-              'password': '0743de26db4b619c60dafbf40ff17572', \
-              'commond': rcmd_cmd
-              }
-
-    json_params = json.dumps(params)
-    print(f'json_params=[\n{json_params}\n]')
+    # url = "http://10.6.176.179:10000/tspi/execute"
+    #
+    # headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    #
+    # rcmd_body = {'requestId': 1, \
+    #              'parameters': {'name': 'getBtsInformation'}
+    #              }
+    # json_string = json.dumps(rcmd_body)
+    # json_string = json.dumps(json_string)
+    #
+    # rcmd_cmd = 'SEND-RCMD:246203, ' + json_string + ';'
+    #
+    # print(f'rcmd_cmd=[{rcmd_cmd}]')
+    #
+    # params = {'async': 0, \
+    #           'requestId': '121212asdfasdf', \
+    #           'callback': None, \
+    #           'timeout': 60, \
+    #           'username': 'nokia', \
+    #           'password': '0743de26db4b619c60dafbf40ff17572', \
+    #           'commond': rcmd_cmd
+    #           }
+    #
+    # json_params = json.dumps(params)
+    # print(f'json_params=[\n{json_params}\n]')
 
     # request_getBtsInformation(url, headers, json_params)
     cmd_mgr = CommandManager()
+
+    # Set Url
+    api_url = "http://10.6.176.179:10000/tspi/execute"
+    cmd_mgr.set_cmd_url(api_url)
+    cmd_mgr.print_cmd_url()
