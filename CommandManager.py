@@ -12,7 +12,8 @@ class CommandManager:
         self._rcmd_param = None
         self._request_body = None
         self._http_res_code = None
-        self._result = None
+        self._res_header = None
+        self._res_text = None
         self._elapsed_time = None
 
     def set_cmd_url(self, url):
@@ -56,7 +57,18 @@ class CommandManager:
         except requests.exceptions.RequestException as err:
             print(f'Something Else: {err}')
 
-        json_response = res.json()
+        self._http_res_code = str(res.status_code)
+        self._res_header = res.headers
+        self._res_text = res.text
+        self._elapsed_time = res.elapsed
+
+        print(f'=========================== RESPONSE================================')
+        print(f'status code = [{self._http_res_code}]')
+        print(f'header = [{self._res_header}]')
+        print(f'text=[\n{self._res_text}\n]')
+        print(f'--------------------------------------------------------------------')
+        print(f'elapsed time=[{self._elapsed_time}]')
+        print(f'====================================================================')
 
     def print_cmd_url(self):
         print(f'URL = [\n{self._url}\n]')
