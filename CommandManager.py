@@ -33,3 +33,6 @@ class CommandManager:
 
         return json_req_params
 
+    def print_cmd_header(self):
+        print(f'HEADER = [\n{self._header}\n]')
+
