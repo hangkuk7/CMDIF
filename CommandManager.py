@@ -6,17 +6,20 @@ class CommandManager:
         print('[CommandManager] init')
         self._url = None
         # default header setting
-        self._header = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+        self._req_header = {'Accept': 'application/json', 'Content-Type': 'application/json'}
         self._rcmd_req_body = None
         self._rcmd_cmd = None
         self._rcmd_param = None
         self._request_body = None
+        self._http_res_code = None
+        self._result = None
+        self._elapsed_time = None
 
     def set_cmd_url(self, url):
         self._url = url
 
-    def set_cmd_header(self, headers):
-        self._header = headers
+    def set_cmd_req_header(self, headers):
+        self._req_header = headers
 
     def set_rcmd_message(self, rcmd_prefix, rcmd_body):
         # double Json Encoding
@@ -33,6 +36,30 @@ class CommandManager:
 
         return json_req_params
 
-    def print_cmd_header(self):
-        print(f'HEADER = [\n{self._header}\n]')
+    def send_command(self):
+        print(f'[CommandManager] send_command() start')
+        print(f'=========================== REQUEST ================================')
+        print(f'api_url=[{self._url}]')
+        print(f'api_headers=[\n{self._header}\n]')
+        print(f'api_body=[\n{self._request_body}\n]')
+        print(f'====================================================================')
 
+        try:
+            res = requests.post(self._url, data=self._request_body, headers=self._header)
+            res.raise_for_status()
+        except requests.exceptions.HTTPError as errh:
+            print(f'HTTP Error: {errh}')
+        except requests.exceptions.ConnectionError as errc:
+            print(f'Error Connecting: {errc}')
+        except requests.exceptions.Timeout as errt:
+            print(f'Timeout Error: {errt}')
+        except requests.exceptions.RequestException as err:
+            print(f'Something Else: {err}')
+
+        json_response = res.json()
+
+    def print_cmd_url(self):
+        print(f'URL = [\n{self._url}\n]')
+
+    def print_cmd_req_header(self):
+        print(f'REQUEST HEADER = [\n{self._header}\n]')
