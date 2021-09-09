@@ -69,3 +69,14 @@ if __name__ == '__main__':
     cmd_mgr.print_cmd_url()
 
     # Set Request Headers
+    api_headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    cmd_mgr.set_cmd_req_header(api_headers)
+    cmd_mgr.print_cmd_req_header()
+
+    # Set RCMD Commmand
+    rcmd_prefix = 'SEND-RCMD:246203'
+    rcmd_body = {'requestId': 1, \
+                 'parameters': {'name': 'getBtsInformation'}
+                 }
+
+    cmd_mgr.set_rcmd_message(rcmd_prefix, rcmd_body)

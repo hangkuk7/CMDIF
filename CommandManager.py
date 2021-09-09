@@ -27,7 +27,7 @@ class CommandManager:
         json_string = json.dumps(rcmd_body)
         json_string = json.dumps(rcmd_body)
 
-        self._rcmd_cmd = '%s %s;' % (rcmd_prefix, json_string)
+        self._rcmd_cmd = '%s, %s;' % (rcmd_prefix, json_string)
 
         return self._rcmd_cmd
 
