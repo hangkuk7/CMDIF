@@ -96,4 +96,15 @@ if __name__ == '__main__':
     print(f'req_body=[{req_body}]')
 
     # Send Command
-    cmd_mgr.send_command()
+    if cmd_mgr.send_command() != True:
+        print(f'cmd_mgr.send_command() fail!')
+
+    http_res_code = None
+    res_text = None
+
+    http_res_code, res_text = cmd_mgr.get_command_result()
+    print(f'********************** COMMAND RESULT ******************************')
+    print(f'status code = [{http_res_code}]')
+    print(f'response text = [{res_text}]')
+    print(f'********************************************************************')
+
