@@ -45,7 +45,7 @@ class CommandManager:
         print(f'====================================================================')
 
         try:
-            res = requests.post(self._url, data=self._request_body, headers=self._header)
+            res = requests.post(self._url, data=self._request_body, headers=self._header, timeout=10)
             res.raise_for_status()
         except requests.exceptions.HTTPError as errh:
             print(f'HTTP Error: {errh}')
