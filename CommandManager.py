@@ -81,3 +81,6 @@ class CommandManager:
     def print_cmd_req_header(self):
         print(f'REQUEST HEADER = [\n{self._req_header}\n]')
 
+    def get_command_result(self):
+        return self._http_res_code, self._res_text
+
