@@ -40,12 +40,12 @@ class CommandManager:
         print(f'[CommandManager] send_command() start')
         print(f'=========================== REQUEST ================================')
         print(f'api_url=[{self._url}]')
-        print(f'api_headers=[\n{self._header}\n]')
+        print(f'api_headers=[\n{self._req_header}\n]')
         print(f'api_body=[\n{self._request_body}\n]')
         print(f'====================================================================')
 
         try:
-            res = requests.post(self._url, data=self._request_body, headers=self._header, timeout=10)
+            res = requests.post(self._url, data=self._request_body, headers=self._req_header, timeout=10)
             res.raise_for_status()
         except requests.exceptions.HTTPError as errh:
             print(f'HTTP Error: {errh}')
