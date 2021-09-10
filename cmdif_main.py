@@ -94,3 +94,6 @@ if __name__ == '__main__':
 
     req_body = cmd_mgr.make_command(req_params)
     print(f'req_body=[{req_body}]')
+
+    # Send Command
+    cmd_mgr.send_command()

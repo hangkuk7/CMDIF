@@ -49,12 +49,16 @@ class CommandManager:
             res.raise_for_status()
         except requests.exceptions.HTTPError as errh:
             print(f'HTTP Error: {errh}')
+            return False
         except requests.exceptions.ConnectionError as errc:
             print(f'Error Connecting: {errc}')
+            return False
         except requests.exceptions.Timeout as errt:
             print(f'Timeout Error: {errt}')
+            return False
         except requests.exceptions.RequestException as err:
             print(f'Something Else: {err}')
+            return False
 
         self._http_res_code = str(res.status_code)
         self._res_header = res.headers
@@ -69,8 +73,11 @@ class CommandManager:
         print(f'elapsed time=[{self._elapsed_time}]')
         print(f'====================================================================')
 
+        return True
+
     def print_cmd_url(self):
         print(f'URL = [\n{self._url}\n]')
 
     def print_cmd_req_header(self):
         print(f'REQUEST HEADER = [\n{self._req_header}\n]')
+
