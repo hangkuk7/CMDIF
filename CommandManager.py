@@ -73,4 +73,4 @@ class CommandManager:
         print(f'URL = [\n{self._url}\n]')
 
     def print_cmd_req_header(self):
-        print(f'REQUEST HEADER = [\n{self._header}\n]')
+        print(f'REQUEST HEADER = [\n{self._req_header}\n]')
