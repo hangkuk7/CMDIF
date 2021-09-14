@@ -23,8 +23,8 @@ class CommandManager:
 
     def set_rcmd_message(self, rcmd_prefix, rcmd_body):
         # double Json Encoding
-        tmp_json_string = json.dumps(rcmd_body)
-        json_string = json.dumps(tmp_json_string)
+        json_string = json.dumps(rcmd_body)
+        json_string = json.dumps(json_string)
 
         self._rcmd_cmd = '%s, %s;' % (rcmd_prefix, json_string)
 
